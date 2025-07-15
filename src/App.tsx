@@ -1,6 +1,5 @@
-
 function App() {
-  return <></>;
+  return <>{console.log('dfdf')}</>;
 }
 
 export default App;
