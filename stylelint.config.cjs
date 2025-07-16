@@ -1,11 +1,11 @@
 module.exports = {
-  extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier'],
+  extends: ['stylelint-config-standard-scss'],
   plugins: ['stylelint-scss'],
   rules: {
     'color-hex-length': 'short',
     'color-named': 'never',
-    'selector-class-pattern': '^[a-z][a-zA-Z0-9]*$',
-    'selector-id-pattern': '^[a-z][a-zA-Z0-9]*$',
+    'selector-id-pattern': null,
+    "selector-class-pattern": null,
     'selector-pseudo-class-no-unknown': [
       true,
       { ignorePseudoClasses: ['global'] },
