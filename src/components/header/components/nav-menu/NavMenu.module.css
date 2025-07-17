@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--clr-line);
+  cursor: pointer;
+}

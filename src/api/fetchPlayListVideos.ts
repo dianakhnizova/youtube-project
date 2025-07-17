@@ -1,8 +1,9 @@
-import { VideoData } from '@/sources/types';
 import { youTubeService } from './services/youTubeService';
-import { preparePlayList } from '@/utils/preparePlayList';
+import type { VideoData } from '../sources/types';
+import { preparePlayListVideosList } from '@/utils/preparePlayListVideosList';
 
-export const fetchPlayLists = async (
+export const fetchPlayListVideo = async (
+  playListID?: string,
   pageToken?: string
 ): Promise<{
   videos: VideoData[];
@@ -10,8 +11,9 @@ export const fetchPlayLists = async (
   prevPageToken?: string;
 }> => {
   try {
-    const data = await youTubeService.getPlayList(pageToken);
-    const videos = preparePlayList(data.items || []);
+    const data = await youTubeService.getPlayListVideos(playListID, pageToken);
+    const videos = preparePlayListVideosList(data.items || []);
+
     return {
       videos,
       nextPageToken: data.nextPageToken,

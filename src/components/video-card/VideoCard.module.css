@@ -1,0 +1,19 @@
+.container {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.videoFrame {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+}
+
+.image {
+  width: 100%;
+}

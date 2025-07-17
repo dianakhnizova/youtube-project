@@ -1,6 +1,6 @@
 import { youTubeService } from './services/youTubeService';
-import { prepareVideoList } from '../src/utils/prepareVideoList';
-import type { VideoData } from '../src/sources/types';
+import { prepareVideoList } from '@/utils/prepareVideoList';
+import type { VideoData } from '../sources/types';
 
 export const fetchVideos = async (
   pageToken?: string
