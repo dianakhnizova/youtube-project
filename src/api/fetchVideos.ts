@@ -3,6 +3,7 @@ import { prepareVideoList } from '@/utils/prepareVideoList';
 import type { VideoData } from '../sources/types';
 
 export const fetchVideos = async (
+  _: string | undefined,
   pageToken?: string
 ): Promise<{
   videos: VideoData[];

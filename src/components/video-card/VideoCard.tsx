@@ -22,7 +22,7 @@ export const VideoCard = ({
   onClick,
 }: Props) => {
   return (
-    <li key={id} onClick={onClick} className={styles.container}>
+    <li onClick={onClick} className={styles.container}>
       <p>{title}</p>
 
       {isShowVideo && (

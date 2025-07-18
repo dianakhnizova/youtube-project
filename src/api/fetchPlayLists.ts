@@ -3,6 +3,7 @@ import { youTubeService } from './services/youTubeService';
 import { preparePlayList } from '@/utils/preparePlayList';
 
 export const fetchPlayLists = async (
+  _: string | undefined,
   pageToken?: string
 ): Promise<{
   videos: VideoData[];

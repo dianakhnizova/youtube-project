@@ -3,6 +3,7 @@ import type { VideoData } from '../../sources/types';
 import styles from './VideoList.module.css';
 import { Pagination } from '../pagination/Pagination';
 import { loadVideoList } from './videoListLoader';
+import React from 'react';
 
 interface Props {
   playListID?: string;
@@ -34,7 +35,7 @@ export const VideoList = ({
   useEffect(() => {
     void loadVideoList({
       playListID,
-      pageToken: nextPageToken,
+      pageToken: undefined,
       setVideos,
       setNextPageToken,
       setPrevPageToken,
@@ -44,7 +45,7 @@ export const VideoList = ({
   }, [playListID]);
 
   const handleNextPage = () => {
-    if (nextPageToken || playListID) {
+    if (nextPageToken) {
       setCurrentPage(prev => prev + 1);
       void loadVideoList({
         playListID,
@@ -58,7 +59,7 @@ export const VideoList = ({
   };
 
   const handlePrevPage = () => {
-    if (prevPageToken || playListID) {
+    if (prevPageToken) {
       setCurrentPage(prev => prev - 1);
       void loadVideoList({
         pageToken: prevPageToken,
@@ -73,9 +74,9 @@ export const VideoList = ({
   return (
     <div className={styles.container}>
       <ul className={styles.videoList}>
-        {videos.map(video => (
-          <li key={video.id}>{renderVideo(video)}</li>
-        ))}
+        {videos.map(video =>
+          React.cloneElement(renderVideo(video), { key: video.id })
+        )}
       </ul>
 
       <Pagination
